@@ -1,0 +1,6 @@
+version: 2
+
+sources: 
+    - name: erpnorthwind20211008
+    tables:
+        - name: public_orders
