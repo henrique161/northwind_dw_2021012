@@ -4,7 +4,7 @@ with
             order_id
             , employee_id
             , order_date
-            , customer_ide
+            , customer_id
             , ship_region
             , shipped_date
             , ship_country
@@ -16,7 +16,7 @@ with
             , ship_address
             , required_date 
     
-        from ({ source('northwind_erp','orders')    })
+        from {{ source('erpnorthwind20211008','public_orders') }}
     )
 
 select * from source_data
