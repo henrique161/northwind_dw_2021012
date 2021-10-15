@@ -2,7 +2,7 @@ with
     source_data as (
         select
            customer_id		
-           ,company_name		
+           ,company_name as customer_name		
            ,contact_name		
            ,contact_title	
            ,address		

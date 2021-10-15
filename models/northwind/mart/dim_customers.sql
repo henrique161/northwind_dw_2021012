@@ -11,7 +11,7 @@ with
 
            row_number() over (order by customer_id) as customer_sk -- auto incremental surrogate key
            ,customer_id		
-           ,company_name		
+           ,customer_name		
            ,contact_name		
            ,contact_title	
            ,address		

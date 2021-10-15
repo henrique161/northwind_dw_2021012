@@ -5,6 +5,7 @@ with
         select
         customer_sk
         ,customer_id
+        ,customer_name
         from {{ref('dim_customers')}}
     )
 
@@ -19,6 +20,7 @@ with
         select
         orders.order_id
         , customers.customer_id
+        , customer_name
         , orders.order_date
         , orders.ship_region
         , orders.shipped_date
@@ -38,17 +40,18 @@ with
         select
         shipper_sk
         ,shipper_id
-        ,company_name
+        ,shipper_name
         from {{ref('dim_shipper')}}
     )
 
 select  order_id
         , customer_id
+        , customer_name
         , product_id
         , product_name
         , order_date
         , shipper_id
-        , company_name
+        , shipper_name
         , ship_region
         , shipped_date
         , ship_country

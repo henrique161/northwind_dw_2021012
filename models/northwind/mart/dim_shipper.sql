@@ -11,7 +11,7 @@ with
 
            row_number() over (order by shipper_id) as shipper_sk -- auto incremental surrogate key
            ,shipper_id
-           ,company_name
+           ,shipper_name
            ,phone	
         from staging     
 )
