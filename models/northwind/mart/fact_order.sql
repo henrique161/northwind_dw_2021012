@@ -42,7 +42,15 @@ with
         ,shipper_id
         ,shipper_name
         from {{ref('dim_shipper')}}
-    )
+)
+
+, suppliers as (
+        select
+        supplier_sk
+        ,supplier_id
+        ,supplier_name
+        from {{ref('dim_supplier')}}
+)
 
 select  order_id
         , customer_id
@@ -61,4 +69,6 @@ select  order_id
         , ship_name
         , freight
         , required_date 
-from products, orders_with_sk, shippers
+        , supplier_id
+        , supplier_name
+from products, orders_with_sk, shippers, suppliers
