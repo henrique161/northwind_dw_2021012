@@ -2,7 +2,7 @@ version: 2
 
 models:
     - name: fact_orders
-      description: "Nossa Tabela de Fatos"
+      description: "Tabela de Fatos"
       columns:
           - name: order_id
             description: "A chave primária original da tabela"
@@ -10,9 +10,25 @@ models:
                 - unique
                 - not_null
     - name: dim_customers
-      description: "Nossa dimensão dos Clientes"
+      description: "Dimensão dos Clientes"
       columns:
           - name: customer_id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+    - name: dim_product
+      description: "Dimensão dos Produtos"
+      columns:
+          - name: product_id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+    - name: dim_shipper
+      description: "Dimensão das Transportadoras"
+      columns:
+          - name: shipper_id
             description: "The primary key for this table"
             tests:
                 - unique

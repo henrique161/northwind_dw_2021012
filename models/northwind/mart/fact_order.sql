@@ -8,6 +8,13 @@ with
         from {{ref('dim_customers')}}
     )
 
+, products as (
+        select
+        product_id
+        ,product_name
+        from {{ref('dim_product')}}
+    )
+
 , orders_with_sk as (
         select
         orders.order_id
@@ -26,4 +33,29 @@ with
     from {{ref('stg_orders')}} orders
     left join customers customers on orders.customer_id = customers.customer_id
 )
-select * from orders_with_sk
+
+, shippers as (
+        select
+        shipper_sk
+        ,shipper_id
+        ,company_name
+        from {{ref('dim_shipper')}}
+    )
+
+select  order_id
+        , customer_id
+        , product_id
+        , product_name
+        , order_date
+        , shipper_id
+        , company_name
+        , ship_region
+        , shipped_date
+        , ship_country
+        , ship_address
+        , ship_postal_code
+        , ship_city
+        , ship_name
+        , freight
+        , required_date 
+from products, orders_with_sk, shippers
