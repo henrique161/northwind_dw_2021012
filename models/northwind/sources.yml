@@ -4,4 +4,12 @@ sources:
   - name: erpnorthwind20211008
     tables:
       - name: public_orders
+      - name: public_customers
+        descripton: Essa é a tabela de clientes
+        columns:
+          - name: customer_id
+            description: Id do Cliente
+            tests:
+              - unique
+              - not_null
       
